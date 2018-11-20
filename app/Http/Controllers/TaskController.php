@@ -19,7 +19,7 @@ class TaskController extends Controller
     {
     	$this->middleware('auth');
     }
-    
+
     /**
  	 * 顯示使用者所有任務的清單。
  	 *
@@ -63,6 +63,8 @@ class TaskController extends Controller
  	 */
 	public function destroy(Request $request, Task $task)
 	{
-    //
+		protected $policies = [
+			Task::class => TaskPolicy::class,
+		];
 	}
 }
