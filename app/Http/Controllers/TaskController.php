@@ -63,8 +63,6 @@ class TaskController extends Controller
  	 */
 	public function destroy(Request $request, Task $task)
 	{
-		protected $policies = [
-			Task::class => TaskPolicy::class,
-		];
+		$this->authorize('destroy', $task);
 	}
 }
